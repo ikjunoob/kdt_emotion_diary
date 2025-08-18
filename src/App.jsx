@@ -1,3 +1,4 @@
+
 import './App.css'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import Diary from './pages/Diary'
@@ -9,14 +10,6 @@ import { getEmotionImage } from './util/getEmotionImage'
 import Header from './components/Header'
 import Button from './components/Button'
 function App() {
-
-  <div>
-    <img src={getEmotionImage(1)} alt="Emotion 1" />
-    <img src={getEmotionImage(2)} alt="Emotion 2" />
-    <img src={getEmotionImage(3)} alt="Emotion 3" />
-    <img src={getEmotionImage(4)} alt="Emotion 4" />
-    <img src={getEmotionImage(5)} alt="Emotion 5" />
-  </div>
 
 
 
