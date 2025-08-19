@@ -11,6 +11,30 @@ const Home = () => {
 
     const [pivotDate, setPivotDate] = useState(new Date())
 
+    const getMonthlyData = (pivotDate, data) => {
+
+        const beginTime = new Date(
+            pivotDate.getFullYear(),
+            pivotDate.getMonth(),
+            1,
+            0, 0, 0
+        ).getTime()
+
+        const endTime = new Date(
+            pivotDate.getFullYear(),
+            pivotDate.getMonth() + 1,
+            0,
+            23, 59, 59
+        ).getTime()
+
+        return data.filter(
+            (item) => beginTime <= item.createdDate && item.createdDate <= endTime
+        )
+
+    }
+
+    const monthlyData = getMonthlyData(pivotDate, data)
+
     const onIncreamentMonth = () => {
         setPivotDate(
             new Date(pivotDate.getFullYear(), pivotDate.getMonth() + 1)
@@ -29,7 +53,7 @@ const Home = () => {
                 title={`${pivotDate.getFullYear()}년 ${pivotDate.getMonth() + 1}월`}
                 rightChild={<Button text={'>'} onClick={onIncreamentMonth} />}
             />
-            <DiaryList />
+            <DiaryList data={monthlyData} />
         </div>
     )
 }

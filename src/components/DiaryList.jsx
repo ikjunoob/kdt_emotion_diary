@@ -2,7 +2,7 @@ import React from 'react'
 import "./DiaryList.css"
 import DiaryItem from './DiaryItem'
 import Button from './Button'
-const DiaryList = () => {
+const DiaryList = ({ data }) => {
     return (
         <div className='DiaryList'>
             <div className="menu-bar">
@@ -13,11 +13,10 @@ const DiaryList = () => {
                 <Button text={"새 일기 쓰기"} type={"POSITIVE"} />
             </div>
             <div className="list-wrapper">
+                {data.map((item) => (
+                    <DiaryItem key={item.id} {...item} />
+                ))}
 
-                <DiaryItem />
-                <DiaryItem />
-                <DiaryItem />
-                <DiaryItem />
             </div>
         </div>
     )
