@@ -17,27 +17,27 @@
 }
 
 .img-section img {
-    width: 50%;
+    width: 67%;
 }
 
 .img-section.bg-1 {
-    background-color: rgb(100, 201, 100);
+    background-color: rgb(255, 234, 252);
 }
 
 .img-section.bg-2 {
-    background-color: rgb(157, 215, 114);
+    background-color: rgb(255, 234, 252);
 }
 
 .img-section.bg-3 {
-    background-color: rgb(253, 206, 23);
+    background-color: rgb(255, 234, 252);
 }
 
 .img-section.bg-4 {
-    background-color: rgb(253, 132, 70);
+    background-color: rgb(255, 234, 252);
 }
 
 .img-section.bg-5 {
-    background-color: rgb(253, 86, 95);
+    background-color: rgb(255, 234, 252);
 }
 
 .info-section {

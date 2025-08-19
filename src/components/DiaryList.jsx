@@ -6,7 +6,7 @@ const DiaryList = ({ data }) => {
     return (
         <div className='DiaryList'>
             <div className="menu-bar">
-                <select >
+                <select>
                     <option value={"latest"}>최신순</option>
                     <option value={"oldest"}>오래된순</option>
                 </select>

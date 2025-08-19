@@ -23,9 +23,27 @@ const mockData = [
   },
   {
     id: 3,
-    createdDate: new Date('2024-12-05').getTime(),
-    emotionId: 4,
+    createdDate: new Date('2025-09-05').getTime(),
+    emotionId: 3,
     content: "3번 일기 내용"
+  },
+  {
+    id: 4,
+    createdDate: new Date('2025-06-05').getTime(),
+    emotionId: 4,
+    content: "4번 일기 내용"
+  },
+  {
+    id: 5,
+    createdDate: new Date('2025-07-05').getTime(),
+    emotionId: 5,
+    content: "5번 일기 내용"
+  },
+  {
+    id: 6,
+    createdDate: new Date('2024-12-05').getTime(),
+    emotionId: 1,
+    content: "6번 일기 내용"
   }
 ]
 
