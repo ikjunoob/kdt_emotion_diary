@@ -1,0 +1,27 @@
+/* 부모 */
+.emotion-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+/* 자식 */
+.EmotionItem {
+    width: 120px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #f7e9ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.EmotionItem img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 6px;
+}
