@@ -1,23 +1,30 @@
 // Editor.jsx
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Editor.css"
 import Button from './Button'
 import EmotionItem from './EmotionItem'
+import { emotionList } from '../util/constants'
+import { getStringDate } from '../util/getStringDate'
 
-const emotionList = [
-    { emotionId: 1, emotionName: "완전 좋음" },
-    { emotionId: 2, emotionName: "좋음" },
-    { emotionId: 3, emotionName: "그럭저럭" },
-    { emotionId: 4, emotionName: "슬픔" },
-    { emotionId: 5, emotionName: "안좋음" },
-    { emotionId: 6, emotionName: "화남" },
-];
 
-const Editor = ({ onSubmit }) => {   // ✅ 부모(New)에서 내려온 onSubmit props 받기
+
+
+const Editor = ({ onSubmit, initData }) => {   // 부모(New)에서 내려온 onSubmit props 받기
     const [input, setInput] = useState({
         createdDate: new Date(),
         emotionId: 3,
         content: ""
+    })
+
+    useEffect(() => {
+
+        if (initData) {
+            setInput({
+                ...initData,
+                createdDate: new Date(Number(initData.createdDate))
+            })
+        }
+
     })
 
     const onChangeInput = (e) => {
@@ -36,7 +43,7 @@ const Editor = ({ onSubmit }) => {   // ✅ 부모(New)에서 내려온 onSubmit
 
     const onSubmitButtonClick = () => {
         if (onSubmit) {
-            onSubmit(input)  // ✅ 부모에 데이터 전달
+            onSubmit(input)  // 부모에 데이터 전달
         }
     }
 
@@ -44,7 +51,12 @@ const Editor = ({ onSubmit }) => {   // ✅ 부모(New)에서 내려온 onSubmit
         <div className='Editor'>
             <section className="date-section">
                 <h4>오늘의 날짜</h4>
-                <input type="date" name="createdDate" onChange={onChangeInput} />
+                <input
+                    type="date"
+                    name="createdDate"
+                    onChange={onChangeInput}
+                    value={getStringDate(input.createdDate)}
+                />
             </section>
             <section className="emotion-section">
                 {emotionList.map((item) => (
@@ -73,7 +85,7 @@ const Editor = ({ onSubmit }) => {   // ✅ 부모(New)에서 내려온 onSubmit
                 />
             </section>
             <section className="button-section">
-                <Button text={"취소하기"} onClick={()=>nav(-1)}/>
+                <Button text={"취소하기"} onClick={() => nav(-1)} />
                 <Button text={"작성완료"} type={'POSITIVE'} onClick={onSubmitButtonClick} />
             </section>
         </div>
